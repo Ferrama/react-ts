@@ -15,7 +15,11 @@ function App() {
       description: "Learn React",
       completed: false,
     }])
- //const add
+ const getCurrentTimestamp = new Date().getTime()
+
+ const addNewTask = (task: Task) => setTasks([...tasks, {...task, id: getCurrentTimestamp, completed: false}]);
+
+const removeTask = (id: number) => setTasks(tasks.filter(task => task.id !== id))
 
   return (
     <div className="bg-dark" style={{ height: '100vh' }}>
@@ -24,12 +28,13 @@ function App() {
       <main className='container p-4'>
         <div className="row">
           <div className="col-md-4">
-           <TaskForm/>
+           <TaskForm addNewTask={addNewTask} />
           </div>
 
           <div className="col-md-8">
             <div className="row">
-              <TaskList tasks={tasks} />
+              <TaskList tasks={tasks}
+              removeTask={removeTask} />
             </div>
           </div>
         </div>

@@ -1,8 +1,8 @@
 export interface Task{
-    id:number;
+    id?:number;
     title:string;
     description:string;
-    completed:boolean;
+    completed?:boolean;
   }
 export interface Props {
     title: string;
