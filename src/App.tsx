@@ -9,12 +9,7 @@ import TaskForm from './components/TaskForm';
 function App() {
 
   const [tasks, setTasks] = useState<Task[]>([
-    {
-      id: 1,
-      title: "Learn React",
-      description: "Learn React",
-      completed: false,
-    }])
+    ])
  const getCurrentTimestamp = new Date().getTime()
 
  const addNewTask = (task: Task) => setTasks([...tasks, {...task, id: getCurrentTimestamp, completed: false}]);
